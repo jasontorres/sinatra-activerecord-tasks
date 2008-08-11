@@ -3,7 +3,7 @@ require 'activerecord'
 require 'erb'
 
 ENV['APP_ENV'] ||= 'development'
-ENV['APP_ROOT'] ||= "#{__FILE__}/../"
+ENV['APP_ROOT'] ||= "#{File.dirname(__FILE__)}"
 
 APP_ENV = ENV['APP_ENV']
 APP_ROOT = ENV['APP_ROOT']
