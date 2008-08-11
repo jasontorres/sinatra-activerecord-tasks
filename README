@@ -1,0 +1,31 @@
+Sinatra ActiveRecord Tasks
+
+Git URL: http://github.com/j4s0n/sinatra-activerecord-tasks/tree/master
+
+This is a port of the ActiveRecord rake tasks that you can drop in to your sinatra application. By default, it requires the ActiveRecord gem.
+
+After cloning, you need to copy everything on the cloned directory, to your sinatra's root directory. Be careful not to override your Rakefile (if you have any) else just copy what's packaged here.
+
+
+After copying, then feel free to call `rake -T` 
+
+and now use 'require sinatra_activerecord' to use activerecord on your sinatra app, like this.
+
+require 'sinatra'
+require 'sinatra_activerecord'
+
+then connect to your db
+
+configure  do
+  ActiveRecord::Base.configurations = database_configuration
+  ActiveRecord::Base.establish_connection(APP_ENV)
+  ActiveRecord::Base.logger = Logger.new("activerecord.log") # Somehow you need logging right?
+end
+
+
+
+NOTE:
+- Technically, RAILS_ROOT and RAILS_ENV are replaced as APP_ROOT and APP_ENV, so if you want to execute a tasks on an environment, just call rake db:migrate APP_ENV=production
+
+- Somehow, i wasn't able to fix yet rake db:create / db:create:all on sqlite3 so feel free to patch in (or patch rails activerecord itself)
+
