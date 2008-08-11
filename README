@@ -22,10 +22,8 @@ configure  do
   ActiveRecord::Base.logger = Logger.new("activerecord.log") # Somehow you need logging right?
 end
 
-
-
 NOTE:
-- Technically, RAILS_ROOT and RAILS_ENV are replaced as APP_ROOT and APP_ENV, so if you want to execute a tasks on an environment, just call rake db:migrate APP_ENV=production
+- Technically, RAILS_ROOT and RAILS_ENV are replaced as APP_ROOT and APP_ENV, so if you want to execute tasks on an  environment, just call rake db:migrate APP_ENV=production
 
 - Somehow, i wasn't able to fix yet rake db:create / db:create:all on sqlite3 so feel free to patch in (or patch rails activerecord itself)
 
